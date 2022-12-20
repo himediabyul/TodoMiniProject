@@ -34,5 +34,4 @@ public class Todo {
     @Column
     private boolean finished;
 
-
 }

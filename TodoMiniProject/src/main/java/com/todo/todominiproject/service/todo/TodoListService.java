@@ -1,22 +1,20 @@
-package com.todo.todominiproject.service;
+package com.todo.todominiproject.service.todo;
 
 import com.todo.todominiproject.entity.Todo;
 import com.todo.todominiproject.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class TodoReadService {
+public class TodoListService {
 
     @Autowired
     private TodoRepository todoRepository;
 
+    public List<Todo> getList(){
 
-    public Todo readTodo(int tno) {
-
-        return todoRepository.findById(tno).get();
+        return todoRepository.findAll();
     }
-
-
-
 }

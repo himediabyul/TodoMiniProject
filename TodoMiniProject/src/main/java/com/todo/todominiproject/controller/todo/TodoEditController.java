@@ -35,7 +35,7 @@ public class TodoEditController {
         redirectAttributes.addAttribute("tno", editRequest.getTno());
         editService.edit(editRequest);
 
-        return "redirect:/todo/read";
+        return "redirect:/todo/list";
     }
 
 }

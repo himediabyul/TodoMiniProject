@@ -12,8 +12,8 @@ import org.springframework.web.multipart.MultipartFile;
 @Builder
 public class TodoEditRequest {
 
+    private Integer tno;
     private String todo;
-
     private String duedate;
 
     private String oldFile;

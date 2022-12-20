@@ -46,26 +46,33 @@ public class TodoEditService {
             }
 
         }
-        Todo todo = editRequest.toTodoEntity();
 
-        if(newFileName != null){
-            todo.setPhoto(newFileName);
-        } else {
-            todo.setPhoto(null);
-        }
+        Todo todo = editRequest.toTodoEntity();
 
         int result = 0;
 
-        todoRepository.save(todo);
+        try {
 
-        String oldFileName = editRequest.getOldFile();
-        if(newFileName !=null && oldFileName != null && !oldFileName.isEmpty()){
-            File delOldFile = new File(saveDir,oldFileName);
-            if(delOldFile.exists()){
-                delOldFile.delete();
+            todoRepository.save(todo);
+
+            // 새로운 파일이 저장 되고 이전 파일이 존재한다면 ! -> 이전 파일을 삭제
+            String oldFileName = editRequest.getOldFile();
+            if(newFileName !=null && oldFileName != null && !oldFileName.isEmpty()){
+                File delOldFile = new File(saveDir,oldFileName);
+                if(delOldFile.exists()){
+                    delOldFile.delete();
+                }
+            }
+
+        } catch (Exception e) {
+
+            if(newFileName!=null){
+                File delFile = new File(saveDir, newFileName);
+                if(delFile.exists()){
+                    delFile.delete();
+                }
             }
         }
-
 
         return result;
 

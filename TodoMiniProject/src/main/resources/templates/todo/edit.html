@@ -14,6 +14,9 @@
 <form method="post" enctype="multipart/form-data">
 
   <table>
+
+    <input type="hidden" name="bno" th:value="${todo.tno}">
+
     <tr>
       <td>할일</td>
       <td> <input type="text" name="todo"> </td>
@@ -21,7 +24,7 @@
 
     <tr>
       <td>작성자</td>
-      <td> <input type="text" name="writer" readonly> </td>
+      <td th:text="${todo.writer}" > </td>
     </tr>
 
     <tr>
@@ -33,6 +36,12 @@
       <td>사진</td>
       <td> <input type="file" name="photo"> </td>
     </tr>
+
+    <tr>
+      <td>완료</td>
+      <td><input type="checkbox" name="finished" th:checked="${todo.finished ? 'checked' : ''}" > </td>
+    </tr>
+
 
     <tr>
       <td></td>

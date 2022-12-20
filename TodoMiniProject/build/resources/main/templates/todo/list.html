@@ -22,7 +22,7 @@
       <tr th:each="todo : ${list}">
         <td th:text="${todo.tno}"></td>
         <td>
-          <a th:text="${todo.todo}" th:href="@{/todo/view(tno=${todo.tno})}"></a>
+          <a th:text="${todo.todo}" th:href="@{/todo/read(tno=${todo.tno})}"></a>
         </td>
         <td th:text="${todo.duedate}"></td>
         <td th:text="${todo.writer}"></td>

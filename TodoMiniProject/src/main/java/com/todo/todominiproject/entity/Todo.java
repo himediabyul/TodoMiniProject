@@ -16,6 +16,7 @@ public class Todo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private Integer tno;
 
     @Column
@@ -29,6 +30,5 @@ public class Todo {
 
     @Column
     private String photo;
-
 
 }

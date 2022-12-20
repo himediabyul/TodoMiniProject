@@ -31,4 +31,8 @@ public class Todo {
     @Column
     private String photo;
 
+    @Column
+    private boolean finished;
+
+
 }

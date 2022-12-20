@@ -13,13 +13,19 @@ public class TodoSaveRequest {
 
     private String todo;
     private String writer;
+    private String duedate;
+
     private MultipartFile photo;
+
+    private boolean finished;
 
     public Todo toTodoEntity(){
         return Todo.builder()
                 .todo(todo)
                 .writer(writer)
+                .duedate(duedate)
 //                .writer(TodoMember.builder().idx(writer).build())
+                .finished(isFinished())
                 .build();
     }
 }

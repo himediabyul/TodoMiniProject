@@ -17,7 +17,7 @@ public class TodoSaveService {
     @Autowired
     private TodoRepository todoRepository;
 
-    public int save(TodoSaveRequest saveRequest) throws IOException {
+    public int save(TodoSaveRequest saveRequest) {
 
         MultipartFile file = saveRequest.getPhoto();
 
@@ -41,7 +41,11 @@ public class TodoSaveService {
 
             File newFile = new File(saveDir, newFileName);
 
-            file.transferTo(newFile);
+            try {
+                file.transferTo(newFile);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
 
         }
 
@@ -67,6 +71,6 @@ public class TodoSaveService {
                 }
             }
         }
-    return 0;
+        return result;
     }
 }

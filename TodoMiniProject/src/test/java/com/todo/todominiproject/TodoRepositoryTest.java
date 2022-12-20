@@ -19,7 +19,7 @@ public class TodoRepositoryTest {
     public void saveTest(){
 
         TodoSaveRequest saveRequest = TodoSaveRequest.builder()
-                .todo("프로젝트 완성")
+                .todo("으아아아")
                 .writer("별")
                 .duedate("2022-12-23")
                 .finished(false)

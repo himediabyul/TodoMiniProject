@@ -8,51 +8,49 @@
 </head>
 <body>
 
+<div class="card m-3">
+  <div class="card-header">
+    Todo 수정
+  </div>
+  <div class="card-body">
 
-<h1>TODO 수정</h1>
+    <form method="post" enctype="multipart/form-data">
 
-<form method="post" enctype="multipart/form-data">
+      <input type="hidden" name="tno" th:value="${todo.tno}">
 
-  <table>
+      <div class="mb-3">
+        <label for="todo" class="form-label">할일</label>
+        <input type="text" class="form-control" id="todo" name="todo" th:value="${todo.todo}">
+      </div>
+      <div class="mb-3">
+        <label for="writer" class="form-label">작성자</label>
+        <input type="text" class="form-control" id="writer" th:value="${todo.writer}" readonly>
+      </div>
+      <div class="mb-3">
+        <label for="duedate" class="form-label">기한</label>
+        <input type="date" class="form-control" id="duedate" name="duedate" th:value="${todo.duedate}">
+      </div>
+      <div class="mb-3">
+        <input type="hidden" name="oldFile" th:value="${todo.photo}">
+        <label for="newPhoto" class="form-label">사진</label>
+        <input type="file" class="form-control" id="newPhoto" name="newPhoto">
+      </div>
 
-    <input type="hidden" name="tno" th:value="${todo.tno}">
+      <div class="mb-3">
+        <label for="finished" class="form-label">완료</label>
+        <input type="checkbox" id="finished" name="finished" th:checked="${todo.finished ? 'checked' : ''}">
+      </div>
 
-    <tr>
-      <td>할일</td>
-      <td> <input type="text" name="todo" th:value="${todo.todo}"> </td>
-    </tr>
+      <div class="mb-3">
+        <input type="reset"  class="btn btn-outline-secondary" value="재입력"> <input type="submit" class="btn btn-outline-warning" value="수정">
+        <input type="button" th:href="@{/todo/list}" class="btn btn-outline-danger" value="돌아가기">
+      </div>
 
-    <tr>
-      <td>작성자</td>
-      <td> <input type="text" th:value="${todo.writer}" readonly> </td>
-    </tr>
-
-    <tr>
-      <td>기한</td>
-      <td> <input type="date" name="duedate" th:value="${todo.duedate}"> </td>
-    </tr>
-
-    <tr>
-      <td>사진</td>
-      <td> <input type="hidden" name="oldFile" th:value="${todo.photo}"> </td>
-      <input type="file" id="newPhoto" name="formFile">
-    </tr>
-
-    <tr>
-      <td>완료</td>
-      <td><input type="checkbox" name="finished" th:checked="${todo.finished ? 'checked' : ''}" > </td>
-    </tr>
+    </form>
 
 
-    <tr>
-      <td></td>
-      <td> <input type="reset"  class="btn btn-secondary" value="재입력"> <input type="submit" class="btn btn-warning" value="수정"> </td>
-      <a href="/todo/list" class="btn btn-outline-danger" >돌아가기</a>
-    </tr>
-
-  </table>
-
-</form>
+  </div>
+</div>
 
 
 

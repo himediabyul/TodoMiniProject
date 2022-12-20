@@ -22,7 +22,7 @@ public class Todo {
     @Column
     private String todo;
 
-    @Column
+    @Column(updatable = false)
     private String writer;
 
     @Column

@@ -15,26 +15,27 @@
 
   <table>
 
-    <input type="hidden" name="bno" th:value="${todo.tno}">
+    <input type="hidden" name="tno" th:value="${todo.tno}">
 
     <tr>
       <td>할일</td>
-      <td> <input type="text" name="todo"> </td>
+      <td> <input type="text" name="todo" th:value="${todo.todo}"> </td>
     </tr>
 
     <tr>
       <td>작성자</td>
-      <td th:text="${todo.writer}" > </td>
+      <td> <input type="text" th:value="${todo.writer}" readonly> </td>
     </tr>
 
     <tr>
       <td>기한</td>
-      <td> <input type="date" name="duedate"> </td>
+      <td> <input type="date" name="duedate" th:value="${todo.duedate}"> </td>
     </tr>
 
     <tr>
       <td>사진</td>
-      <td> <input type="file" name="photo"> </td>
+      <td> <input type="hidden" name="oldFile" th:value="${todo.photo}"> </td>
+      <input type="file" id="newPhoto" name="formFile">
     </tr>
 
     <tr>

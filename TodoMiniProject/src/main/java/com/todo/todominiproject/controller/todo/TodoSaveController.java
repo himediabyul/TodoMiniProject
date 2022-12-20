@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.File;
+import java.io.IOException;
 
 @Controller
 @Log4j2
@@ -24,14 +25,13 @@ public class TodoSaveController {
 
     }
     @PostMapping
-    public String saveTodo(TodoSaveRequest saveRequest){
+    public String saveTodo(TodoSaveRequest saveRequest) throws IOException {
 
         String absolutePath = new File("").getAbsolutePath();
         log.info("path : " + absolutePath);
 
         saveService.save(saveRequest);
 
-        log.info("인서트" + saveService.save(saveRequest) );
 
         return "redirect:/todo/list";
     }

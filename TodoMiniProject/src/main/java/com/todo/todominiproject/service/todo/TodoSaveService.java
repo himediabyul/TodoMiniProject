@@ -3,6 +3,7 @@ package com.todo.todominiproject.service.todo;
 import com.todo.todominiproject.domain.TodoSaveRequest;
 import com.todo.todominiproject.entity.Todo;
 import com.todo.todominiproject.repository.TodoRepository;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -12,12 +13,13 @@ import java.io.IOException;
 import java.util.UUID;
 
 @Service
+@Log4j2
 public class TodoSaveService {
 
     @Autowired
     private TodoRepository todoRepository;
 
-    public int save(TodoSaveRequest saveRequest) {
+    public int save(TodoSaveRequest saveRequest){
 
         MultipartFile file = saveRequest.getPhoto();
 
@@ -41,11 +43,14 @@ public class TodoSaveService {
 
             File newFile = new File(saveDir, newFileName);
 
+            log.info(">>>>>>>>>>>>>>>>>>>>>>>>>    " + newFile.getAbsolutePath());
+
             try {
                 file.transferTo(newFile);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+
 
         }
 
@@ -63,6 +68,7 @@ public class TodoSaveService {
             result = todoRepository.save(todo) != null ? 1 : 0;
 
         } catch (Exception e) {
+
             if (newFileName != null) {
 
                 File delFile = new File(saveDir, newFileName);
@@ -73,6 +79,7 @@ public class TodoSaveService {
                 }
             }
         }
+
         return result;
     }
 }

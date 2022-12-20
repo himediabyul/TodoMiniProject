@@ -14,21 +14,24 @@ public class TodoEditRequest {
 
     private Integer tno;
     private String todo;
-    private String duedate;
 
+    private String writer;
+    private String duedate;
     private String oldFile;
 
-    private MultipartFile photo;
+    private MultipartFile newPhoto;
 
-    private boolean finised;
+    private boolean finished;
 
 
     public Todo toTodoEntity(){
         return Todo.builder()
+                .tno(tno)
                 .todo(todo)
+                .writer(writer)
                 .duedate(duedate)
                 .photo(oldFile)
-                .finished(isFinised())
+                .finished(isFinished())
                 .build();
     }
 }

@@ -19,7 +19,7 @@ public class TodoEditService {
 
     public int edit(TodoEditRequest editRequest){
 
-        MultipartFile file = editRequest.getPhoto();
+        MultipartFile file = editRequest.getNewPhoto();
 
         File saveDir = null;
         String newFileName = null;
@@ -48,6 +48,11 @@ public class TodoEditService {
         }
 
         Todo todo = editRequest.toTodoEntity();
+        if(newFileName != null){
+            todo.setPhoto(newFileName);
+        } else {
+            todo.setPhoto(null);
+        }
 
         int result = 0;
 

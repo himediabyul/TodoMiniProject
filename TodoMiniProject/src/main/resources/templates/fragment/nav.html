@@ -15,13 +15,13 @@
                 <a class="nav-link disabled"> </a>-->
       </div>
 
-      <div class="navbar-nav">
+      <div>
         <ul>
         <li sec:authorize="isAuthenticated()"><span sec:authentication="principal.member.name"></span></li>
         <li sec:authorize="isAuthenticated()"><span sec:authentication="principal.member.id"></span></li>
 
-        <span sec:authorize="isAuthenticated()"><a class="btn" href="/member/logout">로그아웃</a></span>
-        <span sec:authorize="!isAuthenticated()"><a class="btn" href="/member/login">로그인</a></span>
+        <span sec:authorize="isAuthenticated()"><a class="btn" href="/auth/logout">로그아웃</a></span>
+        <span sec:authorize="!isAuthenticated()"><a class="btn" href="/login">로그인</a></span>
         <span sec:authorize="!isAuthenticated()"><a class="btn" href="/member/save">회원가입</a></span>
         </ul>
       </div>

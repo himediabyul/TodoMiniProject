@@ -23,10 +23,15 @@ public class CustomMember extends User {
         this.member = member;
     }
 
+    public CustomMember(String name, String password, boolean enabled, boolean accountNonExpired, boolean credentialsNonExpired, boolean accountNonLocked, Collection<? extends GrantedAuthority> authorities, CustomMember customMember) {
+        super(name, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
+        this.member = member;
+    }
+
     @Override
     public String toString() {
-        return "CustomUser{" +
-                "boardMember=" + member +
+        return "CustomMember{" +
+                "member=" + member +
                 '}';
     }
 

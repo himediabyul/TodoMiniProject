@@ -24,11 +24,11 @@ public class CustomSecurityConfig {
                 .anyRequest().permitAll();
 
         // form 로그인 페이지에 대한 설정 , 성공시 처리 핸들러 등록
-        http.formLogin().loginPage("/auth/login");
+        http.formLogin().loginPage("/member/login");
         // /auth/login 요청의 페이지는 사용자가 직접 만든 페이지
 
         // 로그아웃
-        http.logout().logoutUrl("/auth/logout").logoutSuccessUrl("/");
+        http.logout().logoutUrl("/member/logout").logoutSuccessUrl("/");
         // /auth/logout => Security 가 자동 매핑
 
         // 자동 로그인

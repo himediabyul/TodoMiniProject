@@ -22,7 +22,7 @@ public class CustomMemberService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
 
-        Optional<Member> rs = memberRepository.findByMember(name);
+        Optional<Member> rs = memberRepository.findByUserid(name);
 
         if(rs.isEmpty()) {
 
@@ -43,11 +43,5 @@ public class CustomMemberService implements UserDetailsService {
 
         return customMember;
     }
-
-
-
-
-
-
 
 }

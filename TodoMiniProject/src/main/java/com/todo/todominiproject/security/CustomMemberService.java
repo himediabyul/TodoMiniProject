@@ -22,7 +22,7 @@ public class CustomMemberService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
 
-        Optional<Member> rs = memberRepository.findByUserid(name);
+        Optional<Member> rs = memberRepository.findById(name);
 
         if(rs.isEmpty()) {
 
@@ -34,14 +34,14 @@ public class CustomMemberService implements UserDetailsService {
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority("ROLE_" + member.getRole()));
 
-        CustomMember customMember = new CustomMember(
+        CustomMember user = new CustomMember(
                 member.getId(),
                 member.getPw(),
                 authorities,
                 member
         );
 
-        return customMember;
+        return user;
     }
 
 }

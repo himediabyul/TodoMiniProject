@@ -18,13 +18,13 @@ public class CustomSecurityConfig {
 
         http.csrf().disable();
 
-        http.authorizeHttpRequests()
+//        http.authorizeHttpRequests()
 //                .antMatchers("/board/**", "/member/**", "/todo/**").hasRole("USER")
 //                .antMatchers("/admin/**").hasRole("ADMIN")
-                .anyRequest().permitAll();
+//                .anyRequest().permitAll();
 
         // form 로그인 페이지에 대한 설정 , 성공시 처리 핸들러 등록
-        http.formLogin().loginPage("/member/login");
+        http.formLogin().loginPage("/todo/list");
         // /auth/login 요청의 페이지는 사용자가 직접 만든 페이지
 /*
 

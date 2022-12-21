@@ -1,4 +1,4 @@
-package com.todo.todominiproject.service;
+package com.todo.todominiproject.service.todo;
 
 import com.todo.todominiproject.domain.TodoSaveRequest;
 import com.todo.todominiproject.entity.Todo;
@@ -28,15 +28,18 @@ public class TodoSaveService {
 
         if (file != null && !file.isEmpty() && file.getSize() > 0) {
 
+            // 저장경로
             String absolutePath = new File("").getAbsolutePath();
 
             String path = "photo";
             saveDir = new File(absolutePath, path);
 
+            // 폴더가 없으면 생성
             if (!saveDir.exists()) {
                 saveDir.mkdir();
             }
 
+            // 파일이름 중복되지 않게
             String uuid = UUID.randomUUID().toString();
 
             newFileName = uuid + file.getOriginalFilename();
@@ -54,9 +57,8 @@ public class TodoSaveService {
 
         }
 
-
+        // Entity 저장
         Todo todo = saveRequest.toTodoEntity();
-
 
         if (newFileName != null) {
             todo.setPhoto(newFileName);
@@ -68,7 +70,7 @@ public class TodoSaveService {
             result = todoRepository.save(todo) != null ? 1 : 0;
 
         } catch (Exception e) {
-
+            // 파일이 존재한다면 삭제
             if (newFileName != null) {
 
                 File delFile = new File(saveDir, newFileName);

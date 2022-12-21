@@ -19,7 +19,7 @@ public class Member {
     @Column
     private Integer idx;
 
-    @Column
+    @Column(updatable = false)
     private String id;
 
     @Column
@@ -31,7 +31,7 @@ public class Member {
     @Column
     private String photo;
 
-    @Column
+    @Column(updatable = false)
     private String role;
 
 }

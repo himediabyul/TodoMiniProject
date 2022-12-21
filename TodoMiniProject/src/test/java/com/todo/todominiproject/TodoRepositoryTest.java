@@ -54,13 +54,21 @@ public class TodoRepositoryTest {
                 .tno(1)
                 .todo("수정테스트")
                 .duedate("2022-12-31")
-                .finised(true)
+                .finished(true)
                 .build();
 
-        Todo todo = editRequest.toEditEntity();
+        Todo todo = editRequest.toTodoEntity();
 
         Todo editTodo = todoRepository.save(todo);
 
         log.info("수정 테스트 >> " + editTodo);
     }
+    @Test
+    public void deleteTest(){
+
+        int delete = todoRepository.deleteByTno(1);
+
+        log.info("삭제 테스트 >> " + delete);
+    }
+
 }

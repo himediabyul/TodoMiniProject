@@ -1,4 +1,4 @@
-package com.todo.todominiproject.service.todo;
+package com.todo.todominiproject.service;
 
 import com.todo.todominiproject.domain.TodoEditRequest;
 import com.todo.todominiproject.entity.Todo;

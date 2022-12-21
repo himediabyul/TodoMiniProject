@@ -31,4 +31,7 @@ public class Member {
     @Column
     private String photo;
 
+    @Column
+    private String role;
+
 }

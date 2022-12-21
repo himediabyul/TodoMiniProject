@@ -18,16 +18,12 @@ public class CustomSecurityConfig {
 
         http.csrf().disable();
 
-        // 권한에따른 접속 제한 설정
-        // USER : /board/**, /reply/**, /todo/**
-        // ADMIN : /admin/**
-        // 나머지 요청 경로 : 모두 허가
         http.authorizeHttpRequests()
-/*                .antMatchers("/board/**", "/reply/**", "/todo/**").hasRole("USER")
-                .antMatchers("/admin/**").hasRole("ADMIN")*/
+                .antMatchers("/board/**", "/member/**", "/todo/**").hasRole("USER")
+                .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().permitAll();
 
-/*        // form 로그인 페이지에 대한 설정 , 성공시 처리 핸들러 등록
+        // form 로그인 페이지에 대한 설정 , 성공시 처리 핸들러 등록
         http.formLogin().loginPage("/auth/login");
         // /auth/login 요청의 페이지는 사용자가 직접 만든 페이지
 
@@ -39,7 +35,7 @@ public class CustomSecurityConfig {
         http.rememberMe()
                 .key("123456789")
                 .rememberMeParameter("remember-me")
-                .tokenValiditySeconds(60*60*60*24*7);*/
+                .tokenValiditySeconds(60*60*60*24*7);
 
         return http.build();
 

@@ -1,4 +1,4 @@
-package com.todo.todominiproject.service.todo;
+package com.todo.todominiproject.service;
 
 import com.todo.todominiproject.entity.Todo;
 import com.todo.todominiproject.repository.TodoRepository;

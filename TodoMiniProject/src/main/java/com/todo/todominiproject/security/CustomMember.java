@@ -11,10 +11,10 @@ import java.util.Collection;
 @Getter
 public class CustomMember extends User {
 
-    private Member member;
+    private Member member;  // 부가정보를 받아옴
 
 
-    public CustomMember(String name,
+    public CustomMember(String name,  // 이름으로 일치하는지 비교
                         String pw,
                         Collection<? extends GrantedAuthority> authorities,
                         Member member

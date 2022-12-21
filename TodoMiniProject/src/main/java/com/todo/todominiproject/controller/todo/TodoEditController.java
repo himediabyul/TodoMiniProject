@@ -1,8 +1,8 @@
 package com.todo.todominiproject.controller.todo;
 
 import com.todo.todominiproject.domain.TodoEditRequest;
-import com.todo.todominiproject.service.todo.TodoEditService;
-import com.todo.todominiproject.service.todo.TodoReadService;
+import com.todo.todominiproject.service.TodoEditService;
+import com.todo.todominiproject.service.TodoReadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,10 +1,8 @@
 package com.todo.todominiproject;
 
 import com.todo.todominiproject.domain.TodoEditRequest;
-import com.todo.todominiproject.domain.TodoSaveRequest;
 import com.todo.todominiproject.entity.Todo;
 import com.todo.todominiproject.repository.TodoRepository;
-import com.todo.todominiproject.service.todo.TodoEditService;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

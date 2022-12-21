@@ -1,6 +1,6 @@
 package com.todo.todominiproject.controller.todo;
 
-import com.todo.todominiproject.service.todo.TodoDeleteService;
+import com.todo.todominiproject.service.TodoDeleteService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

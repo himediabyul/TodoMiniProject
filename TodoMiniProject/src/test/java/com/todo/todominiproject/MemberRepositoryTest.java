@@ -47,4 +47,16 @@ public class MemberRepositoryTest {
 
     }
 
+    @Test
+    public void deleteTest() {
+
+        int result = memberRepository.deleteByIdx(1);
+
+        log.info("삭제완료 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" + result);
+
+
+    }
+
+
+
 }

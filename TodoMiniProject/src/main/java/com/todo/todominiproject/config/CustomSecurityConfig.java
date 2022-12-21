@@ -19,13 +19,14 @@ public class CustomSecurityConfig {
         http.csrf().disable();
 
         http.authorizeHttpRequests()
-                .antMatchers("/board/**", "/member/**", "/todo/**").hasRole("USER")
-                .antMatchers("/admin/**").hasRole("ADMIN")
+//                .antMatchers("/board/**", "/member/**", "/todo/**").hasRole("USER")
+//                .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().permitAll();
 
         // form 로그인 페이지에 대한 설정 , 성공시 처리 핸들러 등록
         http.formLogin().loginPage("/member/login");
         // /auth/login 요청의 페이지는 사용자가 직접 만든 페이지
+/*
 
         // 로그아웃
         http.logout().logoutUrl("/member/logout").logoutSuccessUrl("/");
@@ -35,7 +36,8 @@ public class CustomSecurityConfig {
         http.rememberMe()
                 .key("123456789")
                 .rememberMeParameter("remember-me")
-                .tokenValiditySeconds(60*60*60*24*7);
+                .tokenValiditySeconds(60*60*24*7);
+*/
 
         return http.build();
 

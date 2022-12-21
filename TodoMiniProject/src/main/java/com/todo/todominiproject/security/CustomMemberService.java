@@ -31,13 +31,13 @@ public class CustomMemberService implements UserDetailsService {
 
         Member member = rs.get();
 
-        List<SimpleGrantedAuthority> list = new ArrayList<>();
-        list.add(new SimpleGrantedAuthority("ROLE_" + member.getRole()));
+        List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+        authorities.add(new SimpleGrantedAuthority("ROLE_" + member.getRole()));
 
         CustomMember customMember = new CustomMember(
                 member.getId(),
                 member.getPw(),
-                list,
+                authorities,
                 member
         );
 

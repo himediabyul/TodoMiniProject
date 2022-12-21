@@ -1,29 +1,30 @@
 package com.todo.todominiproject.security;
 
 import com.todo.todominiproject.entity.Member;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
 import java.util.Collection;
 
+@Getter
 public class CustomMember extends User {
 
-    @Autowired
     private Member member;
 
 
-    public CustomMember(String username,
-                        String password,
+    public CustomMember(String name,
+                        String pw,
                         Collection<? extends GrantedAuthority> authorities,
                         Member member
     ) {
-        super(username, password, authorities);
+        super(name, pw, authorities);
         this.member = member;
     }
 
-    public CustomMember(String username, String password, boolean enabled, boolean accountNonExpired, boolean credentialsNonExpired, boolean accountNonLocked, Collection<? extends GrantedAuthority> authorities, Member member) {
-        super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
+    public CustomMember(String name, String pw, boolean enabled, boolean accountNonExpired, boolean credentialsNonExpired, boolean accountNonLocked, Collection<? extends GrantedAuthority> authorities, Member member) {
+        super(name, pw, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
         this.member = member;
     }
 

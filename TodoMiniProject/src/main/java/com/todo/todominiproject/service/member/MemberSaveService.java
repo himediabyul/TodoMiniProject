@@ -5,6 +5,7 @@ import com.todo.todominiproject.entity.Member;
 import com.todo.todominiproject.repository.MemberRepository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -18,6 +19,9 @@ public class MemberSaveService {
 
     @Autowired
     private MemberRepository memberRepository;
+
+    @Autowired
+    private PasswordEncoder encoder;
 
 
     public int save(MemberSaveRequest saveRequest){
@@ -57,6 +61,9 @@ public class MemberSaveService {
 
         // Entity 저장
         Member member = saveRequest.toMemberEntity();
+
+        // 패스워드 암호화
+        member.setPw(encoder.encode(saveRequest.getPw()));
 
         if(newFileName != null){
             member.setPhoto(newFileName);

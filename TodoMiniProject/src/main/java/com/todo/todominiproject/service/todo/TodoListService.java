@@ -1,6 +1,5 @@
 package com.todo.todominiproject.service.todo;
 
-import com.todo.todominiproject.domain.TodoArticleDTO;
 import com.todo.todominiproject.domain.TodoListPage;
 import com.todo.todominiproject.entity.Todo;
 import com.todo.todominiproject.repository.TodoRepository;
@@ -23,13 +22,13 @@ public class TodoListService {
         int index = (pageNum-1)*10;
         int count = 10;
 
-        return todoRepository.selectList(index, count);
+        return todoRepository.findAll(index, count);
     }
 
 
     public TodoListPage getPage(int pageNum) {
 
-        Page<Todo> page = todoRepository.findAll(PageRequest.of(pageNum-1, 10, Sort.by("tno").descending()));
+        Page<Todo> page = todoRepository.findAll(PageRequest.of(pageNum-1, 10, Sort.by("tno").ascending()));
 
         List<Todo> list = page.getContent();
 

@@ -25,7 +25,7 @@
       </thead>
 
       <tbody>
-      <tr th:each="todo : ${list}">
+      <tr th:each="todo : ${listPage.list}">
         <td th:text="${todo.tno}"></td>
         <td>
           <a th:text="${todo.todo}" th:href="@{/todo/read(tno=${todo.tno})}"></a>
@@ -59,7 +59,6 @@
           <a class="page-link" th:href="@{/todo/list(p=${listPage.endNum+1})}">&raquo;</a>
         </li>
       </th:block>
-
 
     </ul>
   </nav>

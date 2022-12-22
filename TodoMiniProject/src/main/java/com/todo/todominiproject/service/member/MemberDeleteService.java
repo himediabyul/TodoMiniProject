@@ -16,7 +16,7 @@ public class MemberDeleteService {
 
     public int deletemember(int idx) {
 
-       Member member = memberRepository.findByIdx(idx).get();
+       Member member = memberRepository.findById(idx).get();
 
         int result = memberRepository.deleteByIdx(idx);
 

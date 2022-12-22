@@ -30,7 +30,7 @@ public class TodoListService {
 
     public TodoListPage getPage(int pageNum) {
 
-        Page<Todo> page = todoRepository.findAll(PageRequest.of(pageNum-1, 10, Sort.by("tno").ascending()));
+        Page<Todo> page = todoRepository.findAll(PageRequest.of(pageNum-1, 10, Sort.by("tno").descending()));
 
         List<Todo> list = page.getContent();
 

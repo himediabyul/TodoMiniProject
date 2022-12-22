@@ -18,8 +18,6 @@ public interface MemberRepository extends JpaRepository<Member, Integer> {
 
     Optional<Member> findById(String id);
 
-    Optional<Member> findByIdx(int idx);
-
     @Transactional
     @Modifying
     @Query("delete from Member m where m.idx = :idx")

@@ -11,6 +11,8 @@
 <!--  nav 영역 시작-->
 <div th:replace="fragment/nav"></div>
 
+  <div class="card-body">
+
     <table class="table  table-bordered text-center">
       <thead class="bg-secondary text-white">
       <tr>
@@ -34,6 +36,35 @@
       </tr>
       </tbody>
     </table>
+
+  <nav aria-label="">
+    <ul class="pagination">
+
+      <th:block th:if="${listPage.prev}">
+        <li class="page-item">
+          <a class="page-link" th:href="@{/todo/list(p=${listPage.startNum-1})}">&laquo;</a>
+        </li>
+      </th:block>
+
+
+
+      <th:block th:each="num : ${#numbers.sequence(listPage.startNum, listPage.endNum)}" th:with="active=${listPage.pageNum==num?'active':''}">
+        <li class="page-item" th:classappend="${active}">
+          <a class="page-link" th:href="@{/todo/list(p=${num})}" th:text="${num}"></a>
+        </li>
+      </th:block>
+
+      <th:block th:if="${listPage.next}">
+        <li class="page-item">
+          <a class="page-link" th:href="@{/todo/list(p=${listPage.endNum+1})}">&raquo;</a>
+        </li>
+      </th:block>
+
+
+    </ul>
+  </nav>
+  </div>
+
     <a href="/todo/save" class="btn btn-outline-warning">TODO등록</a>
 
 

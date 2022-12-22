@@ -19,8 +19,8 @@ public class CustomSecurityConfig {
         http.csrf().disable();
 
         http.authorizeHttpRequests()
-                .antMatchers("/board/**", "/todo/**").hasRole("USER")
-                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers( "/todo/**").hasRole("USER")
+                .antMatchers("/admin/**", "/todo/**").hasRole("ADMIN")
                 .anyRequest().permitAll();
 
 

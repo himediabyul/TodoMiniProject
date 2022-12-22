@@ -4,6 +4,7 @@ import com.todo.todominiproject.domain.MemberEditRequest;
 import com.todo.todominiproject.entity.Member;
 import com.todo.todominiproject.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -15,6 +16,8 @@ public class MemberEditService {
 
     @Autowired
     private MemberRepository memberRepository;
+    @Autowired
+    private PasswordEncoder encoder;
 
     public int editMem(MemberEditRequest editRequest){
         MultipartFile file = editRequest.getNewPhoto();
@@ -46,6 +49,9 @@ public class MemberEditService {
         }
 
         Member member = editRequest.toMemberEntity();
+
+        // 패스워드 암호화
+        member.setPw(encoder.encode(editRequest.getPw()));
 
         if(newFileName != null){
             member.setPhoto(newFileName);

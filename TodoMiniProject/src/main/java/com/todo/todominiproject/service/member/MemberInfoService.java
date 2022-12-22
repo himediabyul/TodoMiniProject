@@ -13,7 +13,7 @@ public class MemberInfoService {
 
     public Member memberInfo(int idx){
 
-        return memberRepository.findByIdx(idx).get();
+        return memberRepository.findById(idx).get();
 
     }
 }

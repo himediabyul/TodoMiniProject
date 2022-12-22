@@ -16,32 +16,32 @@
 
     <tr>
         <td class="col-2 text-center bg-light">회원번호</td>
-        <td th:text="${info.idx}"></td>
+        <td th:text="${#authentication.principal.member.idx}"></td>
     </tr>
 
     <tr>
         <td class="col-2 text-center bg-light">아이디</td>
-        <td th:text="${info.id}"></td>
+        <td th:text="${#authentication.principal.member.id}"></td>
     </tr>
 
     <tr>
         <td class="col-2 text-center bg-light">이름</td>
-        <td th:text="${info.name}"></td>
+        <td th:text="${#authentication.principal.member.name}"></td>
     </tr>
 
     <tr>
         <td class="col-2 text-center bg-light">회원사진</td>
         <td>
-            <th:block th:if="${info.photo != null}">
-                <img th:src="@{/upload/member/{name}(name=${info.photo})}" width="300">
+            <th:block th:if="${#authentication.principal.member.photo != null}">
+                <img th:src="@{/member/{name}(name=${#authentication.principal.member.photo})}" width="300">
             </th:block>
         </td>
     </tr>
 
 </table>
 
-<a class="btn btn-outline-warning" th:href="@{/member/edit(idx=${info.idx})}">회원정보수정</a>
-<a class="btn btn-outline-danger" th:onclick="'deleteMember('+${info.idx}+')'">회원탈퇴</a>
+<a class="btn btn-outline-warning" th:href="@{/member/edit(idx=${#authentication.principal.member.idx})}">회원정보수정</a>
+<a class="btn btn-outline-danger" th:onclick="'deleteMember('+${#authentication.principal.member.idx}+')'">회원탈퇴</a>
 <a class="btn btn-outline-secondary" th:href="@{/todo/list}">돌아가기</a>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"

@@ -15,25 +15,28 @@
                 <a class="nav-link disabled"> </a>-->
       </div>
 
-      <div>
-        <ul>
+    </div>
 
-        <li sec:authorize="isAuthenticated()"><span sec:authentication="principal.member.name"></span></li>
-        <li sec:authorize="isAuthenticated()"><span sec:authentication="principal.member.id"></span></li>
+  </div>
 
-        <span sec:authorize="hasRole('USER')">
+  <div >
+    <ul>
+
+      <li sec:authorize="isAuthenticated()"><span sec:authentication="principal.member.name"></span></li>
+      <li sec:authorize="isAuthenticated()"><span sec:authentication="principal.member.id"></span></li>
+
+      <span sec:authorize="hasRole('USER')">
             <a class="btn" href="/member/info">내정보</a>
         </span>
-          <span sec:authorize="hasRole('ADMIN')">
+      <span sec:authorize="hasRole('ADMIN')">
             <a class="btn" href="/admin/list">회원리스트</a>
           </span>
-        <span sec:authorize="isAuthenticated()"><a class="btn" href="/auth/logout">로그아웃</a></span>
-        <span sec:authorize="!isAuthenticated()"><a class="btn" href="/login">로그인</a></span>
-        <span sec:authorize="!isAuthenticated()"><a class="btn" href="/member/save">회원가입</a></span>
+      <span sec:authorize="isAuthenticated()"><a class="btn" href="/auth/logout">로그아웃</a></span>
+      <span sec:authorize="!isAuthenticated()"><a class="btn" href="/login">로그인</a></span>
+      <span sec:authorize="!isAuthenticated()"><a class="btn" href="/member/save">회원가입</a></span>
 
-        </ul>
-      </div>
+    </ul>
 
-    </div>
   </div>
+  
 </nav>

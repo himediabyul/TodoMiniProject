@@ -11,32 +11,61 @@
 <!--  nav 영역 시작-->
 <div th:replace="fragment/nav"></div>
 
+
   <div class="card-body">
+    <!--
+        <table class="table  table-bordered text-center">
+          <thead class="bg-secondary text-white">
+          <tr>
+            <th class="col-1">번호</th>
+            <th class="col">TODO</th>
+            <th class="col-2">기한</th>
+            <th class="col-2">완료여부</th>
+            <th class="col-2">작성자</th>
+          </tr>
+          </thead>
 
-    <table class="table  table-bordered text-center">
-      <thead class="bg-secondary text-white">
-      <tr>
-        <th class="col-1">번호</th>
-        <th class="col">TODO</th>
-        <th class="col-2">기한</th>
-        <th class="col-2">완료여부</th>
-        <th class="col-2">작성자</th>
-      </tr>
-      </thead>
+          <tbody>
+          <tr th:each="todo : ${listPage.list}">
+            <td th:text="${todo.tno}"></td>
+            <td>
+              <a th:text="${todo.todo}" th:href="@{/todo/read(tno=${todo.tno})}"></a>
+            </td>
+            <td th:text="${todo.duedate}"></td>
+            <td th:text="${todo.finished? '완료' : '진행중'}"></td>
+            <td th:text="${todo.writer}"></td>
+          </tr>
+          </tbody>
+        </table>
+    -->
 
-      <tbody>
-      <tr th:each="todo : ${listPage.list}">
-        <td th:text="${todo.tno}"></td>
-        <td>
-          <a th:text="${todo.todo}" th:href="@{/todo/read(tno=${todo.tno})}"></a>
-        </td>
-        <td th:text="${todo.duedate}"></td>
-        <td th:text="${todo.finished? '완료' : '진행중'}"></td>
-        <td th:text="${todo.writer}"></td>
-      </tr>
-      </tbody>
-    </table>
+    <div class="row">
 
+      <div class="card" style="width: 18rem;" th:each="todo : ${listPage.list}">
+        <th:block th:if="${todo.photo != null}">
+          <img th:src="@{/upload/photo/{name}(name=${todo.photo})}" width="300" class="card-img-top">
+        </th:block>
+        <div class="card-body">
+          <h5 class="card-title" th:text="${todo.todo}"></h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">기 한: <a th:text="${todo.duedate}"/></li>
+          <li class="list-group-item">완료여부: <a th:text="${todo.finished? '완료' : '진행중'}"/></li>
+          <li class="list-group-item">작성자: <a th:text="${todo.writer}"/></li>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+
+
+    </div>
+
+
+
+
+<!--    페이징 구간-->
   <nav aria-label="">
     <ul class="pagination">
 

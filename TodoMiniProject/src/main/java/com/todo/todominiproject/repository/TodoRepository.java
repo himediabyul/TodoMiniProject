@@ -14,6 +14,10 @@ public interface TodoRepository extends JpaRepository<Todo, Integer> {
     @Query("select t from Todo t")
     List<Todo> findAll(int index, int count);
 
+    List<Todo> findByDuedateContaining(String keyword);
+
+    List<Todo> findByTodoContaining(String keyword);
+
     @Transactional
     @Modifying
     @Query("delete from Todo t where t.tno = :tno")

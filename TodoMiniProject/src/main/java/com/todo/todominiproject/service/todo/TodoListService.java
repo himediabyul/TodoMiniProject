@@ -1,5 +1,6 @@
 package com.todo.todominiproject.service.todo;
 
+import com.todo.todominiproject.domain.SearchType;
 import com.todo.todominiproject.domain.TodoListPage;
 import com.todo.todominiproject.entity.Todo;
 import com.todo.todominiproject.repository.TodoRepository;
@@ -8,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -38,4 +40,22 @@ public class TodoListService {
 
         return todoListPage;
     }
+
+    @Transactional
+    public List<Todo> search(SearchType searchType) {
+
+        List<Todo> todoList = null;
+
+        switch (searchType.getSearchOption()){
+            case "duedate":
+                todoList = todoRepository.findByDuedateContaining(searchType.getKeyword());
+                break;
+            case "todo":
+                todoList = todoRepository.findByTodoContaining(searchType.getKeyword());
+                break;
+        }
+
+        return todoList;
+    }
+
 }

@@ -10,6 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="/todo/list">LIST</a>
+
         <!--        <a class="nav-link" href="#"> </a>
                 <a class="nav-link" href="#"> </a>
                 <a class="nav-link disabled"> </a>-->
@@ -19,24 +20,41 @@
 
   </div>
 
-  <div >
+
+  <div class="navbar-collapse col-4">
+
+    <form action="/todo/search" method="get" class="d-flex" role="search">
+      <select class="form-select" name="searchOption">
+        <option value="duedate">날짜</option>
+        <option value="todo">키워드</option>
+      </select>
+      <input class="form-control" type="text" name="keyword" placeholder="search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">search</button>
+    </form>
+
+    <ul>
+      <span sec:authorize="isAuthenticated()">name: <span sec:authentication="principal.member.name"></span></span><br>
+      <span sec:authorize="isAuthenticated()">id: <span sec:authentication="principal.member.id"></span></span>
+    </ul>
+  </div>
+
+  <div class="col-1" >
     <ul>
 
-      <li sec:authorize="isAuthenticated()"><span sec:authentication="principal.member.name"></span></li>
-      <li sec:authorize="isAuthenticated()"><span sec:authentication="principal.member.id"></span></li>
-
       <span sec:authorize="hasRole('USER')">
-            <a class="btn" href="/member/info">내정보</a>
+            <a class="btn btn-outline-secondary" href="/member/info">내정보</a>
         </span>
       <span sec:authorize="hasRole('ADMIN')">
-            <a class="btn" href="/admin/list">회원리스트</a>
+            <a class="btn btn-outline-secondary" href="/admin/list">회원리스트</a>
           </span>
-      <span sec:authorize="isAuthenticated()"><a class="btn" href="/auth/logout">로그아웃</a></span>
-      <span sec:authorize="!isAuthenticated()"><a class="btn" href="/login">로그인</a></span>
-      <span sec:authorize="!isAuthenticated()"><a class="btn" href="/member/save">회원가입</a></span>
+      <span sec:authorize="isAuthenticated()"><a class="btn btn-outline-secondary" href="/auth/logout">로그아웃</a></span>
+      <span sec:authorize="!isAuthenticated()"><a class="btn btn-outline-secondary" href="/login">로그인</a></span>
+      <span sec:authorize="!isAuthenticated()"><a class="btn btn-outline-secondary" href="/member/save">회원가입</a></span>
 
     </ul>
 
   </div>
+
+
   
 </nav>

@@ -36,7 +36,7 @@ public class MemberSaveService {
             // 저장경로
             String absolutePath = new File("").getAbsolutePath();
 
-            String path = "member";
+            String path = "photo";
             saveDir = new File(absolutePath, path);
 
             // 폴더가 없으면 생성

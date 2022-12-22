@@ -29,7 +29,7 @@ public class MemberEditService {
 
             String absolutePate = new File("").getAbsolutePath();
 
-            String path = "member";
+            String path = "photo";
             saveDir = new File(absolutePate, path);
 
             if(!saveDir.exists()){

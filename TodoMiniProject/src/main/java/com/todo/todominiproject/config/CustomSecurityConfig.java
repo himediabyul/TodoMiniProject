@@ -25,7 +25,7 @@ public class CustomSecurityConfig {
 
 
         // form 로그인 페이지에 대한 설정 , 성공시 처리 핸들러 등록
-        http.formLogin().defaultSuccessUrl("/todo/list");
+        http.formLogin().defaultSuccessUrl("/");
         // /auth/login 요청의 페이지는 사용자가 직접 만든 페이지
 
 

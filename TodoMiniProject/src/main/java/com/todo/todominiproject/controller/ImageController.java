@@ -33,22 +33,4 @@ public class ImageController {
         return new ResponseEntity<byte[]>(imgArray, status);
     }
 
-    @GetMapping(value = "/upload/member/{filename}", produces = MediaType.IMAGE_PNG_VALUE)
-    @ResponseBody
-    public ResponseEntity<byte[]> viewmemImg(@PathVariable("filename") String filename) throws IOException {
-
-        byte[] imgArray = null;
-        HttpStatus status = HttpStatus.NOT_FOUND;
-
-        File saveFile = new File(new File("").getAbsolutePath(),"member\\"+filename);
-
-        if(saveFile.exists()){
-            InputStream stream = new FileInputStream(saveFile);
-            imgArray = stream.readAllBytes();
-            stream.close();
-            status = HttpStatus.OK;
-        }
-
-        return new ResponseEntity<byte[]>(imgArray, status);
-    }
 }

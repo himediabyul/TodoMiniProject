@@ -1,6 +1,6 @@
 package com.todo.todominiproject.controller.todo;
 
-import com.todo.todominiproject.domain.TodoSaveRequest;
+import com.todo.todominiproject.domain.todo.TodoSaveRequest;
 import com.todo.todominiproject.service.todo.TodoSaveService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;

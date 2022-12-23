@@ -1,7 +1,7 @@
 package com.todo.todominiproject.service.todo;
 
-import com.todo.todominiproject.domain.SearchType;
-import com.todo.todominiproject.domain.TodoListPage;
+import com.todo.todominiproject.domain.todo.SearchType;
+import com.todo.todominiproject.domain.todo.TodoListPage;
 import com.todo.todominiproject.entity.Todo;
 import com.todo.todominiproject.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;

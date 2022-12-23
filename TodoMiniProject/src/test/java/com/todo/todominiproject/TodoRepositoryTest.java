@@ -1,6 +1,6 @@
 package com.todo.todominiproject;
 
-import com.todo.todominiproject.domain.TodoEditRequest;
+import com.todo.todominiproject.domain.todo.TodoEditRequest;
 import com.todo.todominiproject.entity.Todo;
 import com.todo.todominiproject.repository.TodoRepository;
 import lombok.extern.log4j.Log4j2;

@@ -13,6 +13,9 @@ import java.util.Optional;
 
 public interface MemberRepository extends JpaRepository<Member, Integer> {
 
+
+
+
     @Query("select m from Member m")
     List<Member> findAll();
 
@@ -22,5 +25,9 @@ public interface MemberRepository extends JpaRepository<Member, Integer> {
     @Modifying
     @Query("delete from Member m where m.idx = :idx")
     int deleteByIdx(@Param("idx") Integer idx);
+
+
+    boolean existsById(String id);
+
 
 }

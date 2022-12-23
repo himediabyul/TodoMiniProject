@@ -1,16 +1,21 @@
 package com.todo.todominiproject.service.member;
 
-import com.todo.todominiproject.domain.MemberSaveRequest;
+import com.todo.todominiproject.domain.member.MemberSaveRequest;
 import com.todo.todominiproject.entity.Member;
 import com.todo.todominiproject.repository.MemberRepository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.Errors;
+import org.springframework.validation.FieldError;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 @Log4j2
@@ -86,5 +91,23 @@ public class MemberSaveService {
         }
     }
     return result;
+    }
+
+    public Map<String, String> validateHandling(Errors errors){
+        Map<String, String> validateResult = new HashMap<>();
+
+        for(FieldError error : errors.getFieldErrors()){
+            String validKeyName = String.format("valid_", error.getField());
+            validateResult.put(validKeyName, error.getDefaultMessage());
+        }
+        return validateResult;
+    }
+
+    @Transactional
+    public void checkIdDuplication(MemberSaveRequest saveRequest) {
+        boolean idDuplicate = memberRepository.existsById(saveRequest.toMemberEntity().getId());
+        if (idDuplicate) {
+            throw new IllegalStateException("이미 존재하는 아이디입니다.");
+        }
     }
 }

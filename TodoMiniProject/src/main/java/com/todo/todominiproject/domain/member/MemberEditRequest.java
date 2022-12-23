@@ -1,4 +1,4 @@
-package com.todo.todominiproject.domain;
+package com.todo.todominiproject.domain.member;
 
 import com.todo.todominiproject.entity.Member;
 import lombok.*;

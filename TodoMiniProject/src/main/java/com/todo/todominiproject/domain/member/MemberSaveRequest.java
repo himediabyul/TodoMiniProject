@@ -1,10 +1,11 @@
-package com.todo.todominiproject.domain;
+package com.todo.todominiproject.domain.member;
 
 import com.todo.todominiproject.entity.Member;
 import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.persistence.Column;
+import javax.validation.constraints.NotBlank;
+
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,11 +15,15 @@ import javax.persistence.Column;
 @Builder
 public class MemberSaveRequest {
 
+
+    private Integer idx;
+    @NotBlank(message = "아이디는 필수 입력 값 입니다.")
     private String id;
-
+    @NotBlank(message = "비밀번호는 필수 입력 값 입니다.")
     private String pw;
-
+    @NotBlank(message = "이름은 필수 입력 값 입니다.")
     private String name;
+
 
     private MultipartFile photo;
 
@@ -33,4 +38,6 @@ public class MemberSaveRequest {
                 .role(role)
                 .build();
     }
+
+
 }

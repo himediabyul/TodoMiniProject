@@ -1,6 +1,6 @@
 package com.todo.todominiproject.service.todo;
 
-import com.todo.todominiproject.domain.TodoEditRequest;
+import com.todo.todominiproject.domain.todo.TodoEditRequest;
 import com.todo.todominiproject.entity.Todo;
 import com.todo.todominiproject.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;

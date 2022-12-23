@@ -1,6 +1,6 @@
 package com.todo.todominiproject.service.member;
 
-import com.todo.todominiproject.domain.MemberEditRequest;
+import com.todo.todominiproject.domain.member.MemberEditRequest;
 import com.todo.todominiproject.entity.Member;
 import com.todo.todominiproject.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;

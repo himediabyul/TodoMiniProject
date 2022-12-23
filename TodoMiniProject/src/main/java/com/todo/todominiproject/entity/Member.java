@@ -1,6 +1,5 @@
 package com.todo.todominiproject.entity;
 
-import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
@@ -38,5 +37,6 @@ public class Member {
 
     @Column(updatable = false)
     private String role;
+
 
 }

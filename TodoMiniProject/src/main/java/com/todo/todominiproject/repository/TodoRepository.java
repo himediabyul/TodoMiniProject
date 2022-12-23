@@ -23,12 +23,6 @@ public interface TodoRepository extends JpaRepository<Todo, Integer> {
     @Query("delete from Todo t where t.tno = :tno")
     int deleteByTno(@Param("tno") Integer tno);
 
-    @Transactional
-    @Modifying
-    @Query("""
-            update Todo t set t.todo = :todo, t.duedate = :duedate, t.photo = :photo, t.finished = :finished
-            where t.tno = :tno""")
-    int updateTodo(@Param("todo") String todo, @Param("duedate") String duedate, @Param("photo") String photo, @Param("finished") Boolean finished, @Param("tno") Integer tno);
 
 
 }

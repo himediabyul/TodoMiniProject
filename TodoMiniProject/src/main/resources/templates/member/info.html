@@ -33,7 +33,7 @@
         <td class="col-2 text-center bg-light">회원사진</td>
         <td>
             <th:block th:if="${#authentication.principal.member.photo != null}">
-                <img th:src="@{/photo/{name}(name=${#authentication.principal.member.photo})}" width="100">
+                <img th:src="@{/upload/photo/{name}(name=${#authentication.principal.member.photo})}" width="100">
             </th:block>
         </td>
     </tr>
@@ -50,17 +50,16 @@
         crossorigin="anonymous"></script>
 
 
-<script>
+<script type="text/javascript">
 
-    function deleteMember(idx) {
+    $(".id_confirm").on("focusout", function() {
 
-        if (confirm("삭제하시겠습니까?")) {
+        var id = $('input[name=id]').val();
 
-            location.href = '/member/delete?idx=' + idx;
+        if(id == )
 
-        }
+    })
 
-    }
 
 </script>
 

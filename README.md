@@ -51,9 +51,10 @@ ERD
 회원
 --------
 ```
-- 회원가입 (ROLE - USER 자동INSERT)
+- 회원가입 (ROLE - USER 자동INSERT, 아이디 중복체크->비동기처리 미구현, validation 미구현)
 ```
 ![회원가입](https://user-images.githubusercontent.com/113006951/209263647-5501f597-9120-4337-a967-aff47ef58389.png)
+![아이디중복체크](https://user-images.githubusercontent.com/113006951/209302021-c9cee491-4196-4b4a-aeb7-0cd2d128832e.png)
 ```
 - 회원DB
 ```

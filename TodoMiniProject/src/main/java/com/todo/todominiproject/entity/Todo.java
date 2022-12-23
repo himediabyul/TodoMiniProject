@@ -3,6 +3,7 @@ package com.todo.todominiproject.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,18 +21,21 @@ public class Todo {
     private Integer tno;
 
     @Column
+    @NotEmpty
     private String todo;
 
     @Column(updatable = false)
     private String writer;
 
     @Column
+    @NotEmpty
     private String duedate;
 
     @Column
     private String photo;
 
     @Column
+    @NotEmpty
     private Boolean finished;
 
 }

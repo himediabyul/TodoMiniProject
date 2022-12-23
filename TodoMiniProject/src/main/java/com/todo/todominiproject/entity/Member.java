@@ -1,8 +1,10 @@
 package com.todo.todominiproject.entity;
 
+import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "mini_member")
@@ -20,12 +22,15 @@ public class Member {
     private Integer idx;
 
     @Column(updatable = false)
+    @NotEmpty
     private String id;
 
     @Column
+    @NotEmpty
     private String pw;
 
     @Column
+    @NotEmpty
     private String name;
 
     @Column

@@ -21,8 +21,8 @@ public class TodoListService {
 
     public List<Todo> getList(int pageNum){
 
-        int index = (pageNum-1)*10;
-        int count = 10;
+        int index = (pageNum-1)*8;
+        int count = 8;
 
         return todoRepository.findAll(index, count);
     }
@@ -30,13 +30,13 @@ public class TodoListService {
 
     public TodoListPage getPage(int pageNum) {
 
-        Page<Todo> page = todoRepository.findAll(PageRequest.of(pageNum-1, 10, Sort.by("tno").descending()));
+        Page<Todo> page = todoRepository.findAll(PageRequest.of(pageNum-1, 8, Sort.by("tno").descending()));
 
         List<Todo> list = page.getContent();
 
         int totalCount = (int) page.getTotalElements();
 
-        TodoListPage todoListPage = new TodoListPage(10, pageNum, list, totalCount);
+        TodoListPage todoListPage = new TodoListPage(8, pageNum, list, totalCount);
 
         return todoListPage;
     }

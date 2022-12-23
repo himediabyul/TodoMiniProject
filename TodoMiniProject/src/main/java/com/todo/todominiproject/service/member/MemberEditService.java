@@ -27,11 +27,13 @@ public class MemberEditService {
 
         if(file != null && !file.isEmpty()){
 
+            // 파일의 절대경로
             String absolutePate = new File("").getAbsolutePath();
 
             String path = "photo";
             saveDir = new File(absolutePate, path);
 
+            // 폴더가 존재하지 않으면 생성
             if(!saveDir.exists()){
                 saveDir.mkdir();
             }

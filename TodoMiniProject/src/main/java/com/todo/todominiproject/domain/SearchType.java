@@ -10,7 +10,7 @@ import lombok.*;
 @ToString
 public class SearchType {
 
-    private String searchOption;
+    private String searchOption;  // 검색 옵션
 
-    private String keyword;
+    private String keyword; // 키워드
 }

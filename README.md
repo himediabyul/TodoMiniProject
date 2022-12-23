@@ -83,7 +83,7 @@ ERD
 TODO등록
 --------
 ```
-- 전체목록
+- 전체목록 (페이징 처리)
 ```
 ![TODO리스트](https://user-images.githubusercontent.com/113006951/209263971-574a20b8-bac4-46e5-91f3-553adddf3967.png)
 ```
